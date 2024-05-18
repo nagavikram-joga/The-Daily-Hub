@@ -16,7 +16,8 @@ const app = express()
 mongoose.set('strictQuery', true);
 
 const allowedOrigins = [
-    "http://localhost:3000"
+    "http://localhost:3000",
+    "http://thedailyhub.com"
     // add more origins as needed
   ];
 
