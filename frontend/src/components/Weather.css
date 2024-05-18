@@ -1,0 +1,152 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.App {
+  background-color: #ffffff;
+  width: 100dvw;
+  height: 90dvh;
+}
+
+.AppTopBar {
+  background-color: #ffffff;
+  width: 100dvw;
+  height: 10dvh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.AppTopBar h1 {
+  color: #171717;
+  font-size: 4dvh;
+  font-weight: 500;
+}
+.top-bar {
+  display: flex;
+  justify-content: center;
+  gap: 1dvw;
+}
+
+.top-bar input {
+  display: inline-flex;
+  width: 60dvw;
+  height: 7dvh;
+  background: #ededed;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  padding-left: 40px;
+  color: #171717;
+  font-size: 3dvh;
+  font-weight: 400;
+  max-width: 450px;
+}
+
+.search-icon {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 7dvh;
+  height: 7dvh;
+  background: #ededed;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* App Bottom Bar */
+.AppBottomBar {
+  width: 100dvw;
+  height: 80dvh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  font-weight: 400;
+  background-color: #ffffff;
+  font-size: 16px;
+  font-stretch: 100%;
+  margin: -5dvh 0px 0px 0px;
+}
+.current-weather {
+  font-size: 16px;
+  font-weight: 400;
+  align-items: center;
+}
+.current-weather-info {
+  font-size: 16px;
+  font-stretch: 100%;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.icon {
+  width: 200px;
+  height: 200px;
+}
+.display-temp {
+  font-size: 14dvh;
+  color: #171717;
+  font-stretch: 100%;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+  margin-left: -10px;
+}
+.phrase {
+  color: #171717;
+  font-size: 7dvh;
+  font-weight: bold;
+  margin-top: -7dvh;
+  letter-spacing: -0.5px;
+  text-align: center;
+}
+.weather-details {
+  display: flex;
+  justify-content: space-evenly; /* Arrange items with space between */
+  font-size: 16px;
+  font-stretch: 100%;
+  font-weight: 400;
+  vertical-align: baseline;
+  margin: 1dvh 0px 1dvh 0px;
+  padding: 0px 2dvw 0px 2dvw;
+  width: 100dvw;
+}
+
+.items {
+  border-bottom-color: #ededed;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  color: #171717;
+  width: 43dvw;
+  display: flex; /* Ensure the items themselves are flex items */
+  align-items: center;
+  justify-content: space-between; /* Space between the content inside items */
+  font-size: 16px;
+  font-stretch: 100%;
+  font-weight: 400;
+  margin: 0px 3dvw 0px 3dvw;
+  padding: 10px 10px 10px 10px;
+  vertical-align: baseline;
+}
+
+.sub {
+  border-color: rgb(135, 135, 135);
+  color: rgb(135, 135, 135);
+  border-style: none;
+  border-width: 0px 0px 0px 0px;
+  box-sizing: border-box;
+  font-size: 8dvh;
+  font-stretch: 100%;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+  margin-left: -14px;
+  padding: 0px 0px 0px 0px;
+  margin-top: 10dvh;
+}
+.item-name {
+  font-weight: bold;
+  font-size: 3dvh;
+}
+.item-value {
+  font-size: 3dvh;
+}
