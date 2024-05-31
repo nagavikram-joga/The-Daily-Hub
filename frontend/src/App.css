@@ -18,3 +18,22 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+.tiul .active{
+  padding: 6px 12px;
+  border-radius: 10px;
+  text-decoration: none;
+  background-color: #EDEDED;
+  color: #171717;
+}
+
+.tiul .inactive{
+  text-decoration: none;
+  color: #EDEDED;
+  
+}
+.tibg{
+  background-color: #444444;
+  border-radius: 10px;
+  padding: 1rem;
+  overflow: auto;
+}

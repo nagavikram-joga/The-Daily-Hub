@@ -1,4 +1,3 @@
-// const host = "https://expense-tracker-app-knl1.onrender.com";
 const host = "http://localhost:8000";
 
 export const addTransaction = `${host}/api/v1/addTransaction`;

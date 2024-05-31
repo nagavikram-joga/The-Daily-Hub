@@ -4,6 +4,9 @@ import search_icon from "../assets/search.png";
 
 const WeatherApp = () => {
   const api_key = "536266bfffb7f5362a9cacd09cc0720a";
+  // const api_key = process.env.REACT_APP_OPEN_WEATHER_MAP_API_KEY;
+
+  console.log(api_key);
   const [icon_url, setIconUrl] = useState(
     "http://openweathermap.org/img/wn/01d@2x.png"
   ); // Initializes with cloud icon
@@ -46,6 +49,7 @@ const WeatherApp = () => {
   const search = async (lat, long) => {
     try {
       let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=Metric&appid=${api_key}`;
+      setCity("");
       if (lat) {
         url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=Metric&appid=${api_key}`;
       }
@@ -53,7 +57,7 @@ const WeatherApp = () => {
       console.log(response);
       const data = await response.json();
       console.log(data);
-      setCity("");
+      
       const windDirection = getWindDirection(data.wind.deg);
       console.log(data.name);
       setLocation(data.name + ", " + data.sys.country);

@@ -4,31 +4,33 @@
 .task-container {
   height: 80dvh;
   /* background-color: #ededed; */
-  margin-left: 1.25rem; /* Equivalent to 20px assuming the default font size is 16px */
-  margin-right: 1.25rem;
-  width: calc(33.333333% - 2.5rem);
-  margin-top: 0.75rem;
-  border-radius: 5px;
+  /* margin-left: 1.25rem; Equivalent to 20px assuming the default font size is 16px */
+  /* margin-right: 1.25rem; */
+  /* width: calc(33.333333% - 2.5rem); */
+  margin-top: 2dvh;
+
 }
 .outlet {
-  height: 77dvh;
-  background-color: #ededed;
+  height: 82dvh;
+  margin-top: 2.5dvh;
+  background-color: #ededed;  
   border-radius: 10px;
-  padding: 1rem;
+  /* padding: 1rem; */
   overflow: auto;
 }
 .indicator {
   display: flex;
   align-items: center;
-  height: 9dvh;
-  margin:1.5dvh 0;
+  height: 3dvh;
+  width: 100dvw;
   /* background-color: #444444; */
   text-decoration: none;
+  
 }
 .addTask {
-  height: 10dvh;
+  /* height: 10dvh;
   background-color: transparent;
-  padding: 10px;
+  padding: 10px; */
 }
 .Todo {
   display: flex;

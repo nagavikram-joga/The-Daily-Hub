@@ -1,17 +1,27 @@
-import React from "react";
-import { useContext,useEffect } from "react";
-import { Outlet, NavLink } from "react-router-dom";
+import React, { useContext } from "react";
+import { Outlet, NavLink, useLocation } from "react-router-dom";
 import TokenContext from "../../context/TokenContext.js";
 import "./header.css";
+
 function Header() {
   const token = localStorage.getItem("authToken");
   const { user } = useContext(TokenContext);
-  console.log("user", user);
+  // console.log("user", user);
+
   const logout = () => {
     localStorage.removeItem("authToken");
     window.location.href = "/login";
   };
 
+  const location = useLocation();
+
+  const isTodoActive = () => {
+    return (
+      location.pathname === "/" ||
+      location.pathname === "/active" ||
+      location.pathname === "/completed"
+    );
+  };
 
   return (
     <div>
@@ -24,28 +34,35 @@ function Header() {
         <div className="app-component-btns">
           {token ? (
             <div className="component-container">
-                <ul className="components-list">
-                  <li>
-                      <NavLink className="component" to="/">
-                        To Do
-                      </NavLink>
-                  </li>
-                  <li>
-                    <NavLink className="component" to="/notes">
-                      Notes
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink className="component" to="/expense">
-                      Expense Tracker
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink className="component" to="/weather">
-                      Weather
-                    </NavLink>
-                  </li>
-                </ul>
+              <ul className="components-list">
+                <li>
+                  <NavLink
+                    className={({ isActive }) =>
+                      isActive || isTodoActive()
+                        ? "component active"
+                        : "component"
+                    }
+                    to="/"
+                  >
+                    To Do
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink className="component" to="/notes">
+                    Notes
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink className="component" to="/expense">
+                    Expense Tracker
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink className="component" to="/weather">
+                    Weather
+                  </NavLink>
+                </li>
+              </ul>
               <div className="header-last">
                 <p className="welcome-text">
                   Welcome, {token ? user.name : "Vikram"}

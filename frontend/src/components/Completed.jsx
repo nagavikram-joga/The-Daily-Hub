@@ -1,27 +1,42 @@
-import React, { useContext } from "react";
-import TaskContext from "../context/TaskContext";
-import CompletedTask from "./CompletedTask";
-function Completed() {
-    const { tasks } = useContext(TaskContext);
-    return (
-        <div>
-            {
-                (tasks.length !== 0) ? (
-                    tasks.map((task, index) => {
-                        return (
-                            task.completed && <CompletedTask
-                                key={index}
-                                task={task}
-                                id={index}
-                            />
-                        )
-                    })
-                ) : (
-                    <h1>No Task Found</h1>
-                )
-            }
+import React, { useContext, useEffect, useState } from "react";
+import axios from "axios";
+import Task from "./Task/Task";
+import TokenContext from "../context/TokenContext";
+
+function CompletedTasks() {
+  const [completedTasks, setCompletedTasks] = useState([]);
+  const { userToken } = useContext(TokenContext); // Assuming you have a userToken in your context
+
+  useEffect(() => {
+    const fetchCompletedTasks = async () => {
+      try {
+        const res = await axios.get("/api/task/getCompletedTasks", {
+          headers: {
+            Authorization: `Bearer ${userToken}`,
+          },
+        });
+        setCompletedTasks(res.data);
+      } catch (error) {
+        console.error("Error fetching completed tasks:", error);
+      }
+    };
+
+    fetchCompletedTasks();
+  }, [userToken]);
+
+  return (
+    <div>
+      {completedTasks.length > 0 ? (
+        completedTasks.map((task, index) => (
+          <Task key={task._id} task={task} id={index} completed={task.completed} />
+        ))
+      ) : (
+        <div className="min-h-screen flex flex-col justify-center items-center">
+          <h1 className="text-4xl font-bold">No Completed Tasks Found</h1>
         </div>
-    );
+      )}
+    </div>
+  );
 }
 
-export default Completed;
+export default CompletedTasks;
